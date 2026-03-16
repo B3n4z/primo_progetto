@@ -1,0 +1,95 @@
+/* Reset di base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color:whitesmoke;
+    padding: 20px;
+    /* Spazio extra in fondo per non coprire i div con il result fisso */
+    padding-bottom: 100px; 
+}
+
+/* IL CONTENITORE */
+.parent {
+    display: grid;
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+    
+    /* Gestione dinamica delle colonne */
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
+    /* Riempie i buchi lasciati da eventuali .Ltext */
+    grid-auto-flow: dense; 
+}
+
+/* LE CELLE */
+.son {
+    background-color: lightslategrey;
+    color: white;
+    padding: 5px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    aspect-ratio: 3 / 3; /* Le mantiene quadrate dove possibile */
+    min-width: 20px; 
+    transition: all 0.3s ease;
+    word-break: break-word; /* Spezza le parole lunghe per non uscire dai bordi */
+}
+
+/* IL RISULTATO FISSATO IN BASSO */
+.result {
+    position: fixed;
+    bottom: 20px;      /* Distanza dal bordo inferiore */
+    left: 50%;         /* Sposta a metà larghezza */
+    transform: translateX(-50%); /* Centra perfettamente l'elemento */
+    background-color: darkblue;
+    color: white;
+    padding: 15px 30px;
+    min-width: 200px;
+    border-radius: 50px;
+    text-align: center;
+    z-index: 1000;     /* Lo tiene sopra a tutto */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Ombra per profondità */
+}
+
+/* LOGICA PER IL NUMERO DI COLONNE (RESPONSIVE) */
+
+/* 1. Limite massimo: non più di 10 colonne */
+@media (min-width: 800px) {
+    .parent {
+        grid-template-columns: repeat(10, 1fr);
+    }
+}
+
+/* Utility per celle larghe (es. FizzBuzz) */
+.Ltext {
+    grid-column: span 2; 
+    aspect-ratio: auto; /* Rimuove il quadrato per adattarsi alla larghezza doppia */
+    font-weight: bold;
+    background-color: rgb(96, 152, 225);
+}
+
+/* Altri elementi di utilità */
+.number {
+    border-radius: 25px;
+    padding: 5px 15px;
+}
+
+.text {
+    border-radius: 25px;
+    padding: 5px 15px;
+    background-color: lightsteelblue;
+}
+
+.numeri {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}

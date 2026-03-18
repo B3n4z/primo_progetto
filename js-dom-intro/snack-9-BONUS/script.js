@@ -14,7 +14,7 @@ const attori = [
 let page = document.getElementById("attori");
 
 for(let i = 0; i < attori.length; i++) {
-    page.innerHTML += `<div class="attore"><img id="${attori[i].nome}" src="${attori[i].immagine}" alt="Foto di ${attori[i].nome}" class="img_attori">
+    page.innerHTML += `<div class="attore"><img id="${attori[i].nome}" src="foto/${attori[i].immagine}" alt="Foto di ${attori[i].nome}" class="img_attori">
     <p>${attori[i].nome} ${attori[i].eta} anni: ${attori[i].desc}</p>
     </div>`
 }

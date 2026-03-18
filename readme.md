@@ -1,1 +1,1 @@
-la mia prima repo
+la mia prima repo, qui sono caricati tutti gli esercizzi di js che abbiamo svolto in classe
